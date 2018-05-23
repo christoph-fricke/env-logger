@@ -20,9 +20,9 @@ import logger from 'env-logger';
 // You might want to use a env variable instead of a literal. This
 // way you can change the log output depending on the environment your
 // app is deployed to. For example:
-// Development: 3
+// Development: 1
 // Internal testing: 2
-// Production: 1
+// Production: 3
 logger.init(3);
 
 // Somewhere else in your code
