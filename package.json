@@ -1,6 +1,6 @@
 {
   "name": "env-logger",
-  "version": "0.0.1",
+  "version": "1.0.0",
   "description": "A minimal logger that only logs when a required level is passed. Helps when dealing with different log outputs for multiple environments.",
   "main": "src/index.js",
   "scripts": {
