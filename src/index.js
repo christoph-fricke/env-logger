@@ -1,14 +1,14 @@
-let requiredLevel = undefined;
+let minLevel = undefined;
 
 /**
  * Sets the required level. Every output that should be shown in the console must have
- * a level >= required level. It is recommended to use an environment variable for the minLevel.
- * @param {number} minLevel Required level
- * @throws if minLevel is not a number.
+ * a level >= required level. It is recommended to use an environment variable for the requiredLevel.
+ * @param {number} requiredLevel Required level
+ * @throws if requiredLevel is not a number.
  */
-exports.init = minLevel => {
-    if (typeof minLevel !== 'number') throw new Error('minLevel must be a number to be compareable');
-    requiredLevel = minLevel;
+exports.init = requiredLevel => {
+    if (typeof requiredLevel !== 'number') throw new Error('minLevel must be a number to be compareable');
+    minLevel = requiredLevel;
 };
 
 /**
@@ -18,10 +18,10 @@ exports.init = minLevel => {
  * @throws if no required level is defined or level is not a number.
  */
 exports.info = (level, ...args) => {
-    if (typeof requiredLevel === 'undefined') throw new Error('No required log level was defined! Call init() first.');
+    if (typeof minLevel === 'undefined') throw new Error('No required log level was defined! Call init() first.');
     if (typeof level !== 'number') throw new Error('level must be passed as a number!');
 
-    if (level >= requiredLevel) console.info(...args);
+    if (level >= minLevel) console.info(...args);
 };
 
 /**
@@ -31,10 +31,10 @@ exports.info = (level, ...args) => {
  * @throws if no required level is defined or level is not a number.
  */
 exports.log = (level, ...args) => {
-    if (typeof requiredLevel === 'undefined') throw new Error('No required log level was defined! Call init() first.');
+    if (typeof minLevel === 'undefined') throw new Error('No required log level was defined! Call init() first.');
     if (typeof level !== 'number') throw new Error('level must be passed as a number!');
 
-    if (level >= requiredLevel) console.log(...args);
+    if (level >= minLevel) console.log(...args);
 };
 
 /**
@@ -44,10 +44,10 @@ exports.log = (level, ...args) => {
  * @throws if no required level is defined or level is not a number.
  */
 exports.warn = (level, ...args) => {
-    if (typeof requiredLevel === 'undefined') throw new Error('No required log level was defined! Call init() first.');
+    if (typeof minLevel === 'undefined') throw new Error('No required log level was defined! Call init() first.');
     if (typeof level !== 'number') throw new Error('level must be passed as a number!');
 
-    if (level >= requiredLevel) console.warn(...args);
+    if (level >= minLevel) console.warn(...args);
 };
 
 /**
@@ -57,8 +57,8 @@ exports.warn = (level, ...args) => {
  * @throws if no required level is defined or level is not a number.
  */
 exports.error = (level, ...args) => {
-    if (typeof requiredLevel === 'undefined') throw new Error('No required log level was defined! Call init() first.');
+    if (typeof minLevel === 'undefined') throw new Error('No required log level was defined! Call init() first.');
     if (typeof level !== 'number') throw new Error('level must be passed as a number!');
 
-    if (level >= requiredLevel) console.error(...args);
+    if (level >= minLevel) console.error(...args);
 };
